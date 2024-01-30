@@ -3,6 +3,9 @@ const app = express();
 const bodyParser = require("body-parser")
 const connection = require("./database/database")
 
+const categoriesController = require("./categories/CategoriesController")
+const articlesController = require("./articles/ArticlesController")
+
 // View Engine
 app.set("view engine", "ejs")
 
@@ -24,6 +27,9 @@ connection
     }).catch((error) => {
         console.log(error)
     })
+
+app.use("/", categoriesController) // A / é o prefixo para acessar as rotas configuradas no arquivo importado, podemos alterar o prefixo tbm.
+app.use("/", articlesController)
 
 app.use(bodyParser.json())
 

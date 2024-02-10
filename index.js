@@ -37,7 +37,7 @@ app.use("/", articlesController)
 app.use(bodyParser.json())
 
 app.get("/" , (req, res) => {
-    res.render("index")
+    res.render("index!")
 })
 
 app.listen(8080, () => {
